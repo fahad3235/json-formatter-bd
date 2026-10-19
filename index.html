@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON Formatter BD &mdash; Validate, Format &amp; Minify JSON Offline</title>
+<meta name="description" content="Offline bilingual EN/Bangla JSON formatter, validator, minifier and tree explorer. Your JSON never leaves the page.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <h1 data-i18n="title">JSON Formatter BD</h1>
+    <p class="tagline" data-i18n="tagline">Validate, format &amp; minify JSON &mdash; fully offline</p>
+  </div>
+  <div class="lang" role="group" aria-label="Language">
+    <button id="langEn" class="langbtn active" type="button">EN</button>
+    <button id="langBn" class="langbtn" type="button">&#2476;&#2494;&#2434;&#2482;&#2494;</button>
+  </div>
+</header>
+
+<main>
+  <section class="panel input-panel">
+    <label class="lbl" for="input" data-i18n="inputLabel">Paste JSON</label>
+    <textarea id="input" rows="14" data-i18n-ph="inputPlaceholder" placeholder="Paste JSON here, or upload a .json file..." spellcheck="false"></textarea>
+    <div class="toolbar">
+      <button id="btnFormat" class="btn primary" type="button" data-i18n="format">Format</button>
+      <button id="btnMinify" class="btn" type="button" data-i18n="minify">Minify</button>
+      <button id="btnSort" class="btn" type="button" data-i18n="sortKeys">Sort keys</button>
+      <button id="btnValidate" class="btn" type="button" data-i18n="validate">Validate</button>
+      <label class="indent-lbl"><span data-i18n="indent">Indent</span>
+        <select id="indent">
+          <option value="2" data-i18n="spaces2">2 spaces</option>
+          <option value="4" data-i18n="spaces4">4 spaces</option>
+        </select>
+      </label>
+    </div>
+    <div class="toolbar secondary">
+      <button id="btnSample" class="btn ghost" type="button" data-i18n="sample">Load sample</button>
+      <label class="btn ghost filebtn"><span data-i18n="upload">Upload .json file</span>
+        <input id="fileInput" type="file" accept=".json,application/json" hidden>
+      </label>
+      <button id="btnClear" class="btn ghost danger" type="button" data-i18n="clear">Clear</button>
+    </div>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="panel output-panel">
+    <div class="rowhead">
+      <h2 data-i18n="outputLabel">Output</h2>
+      <div class="toolbar mini">
+        <button id="btnCopy" class="btn ghost" type="button" data-i18n="copy">Copy output</button>
+        <button id="btnDownload" class="btn ghost" type="button" data-i18n="download">Download .json</button>
+      </div>
+    </div>
+    <pre id="output" class="output" aria-label="Formatted JSON output"></pre>
+    <div id="stats" class="stats" aria-label="JSON statistics"></div>
+  </section>
+
+  <section class="panel tree-panel">
+    <div class="rowhead">
+      <h2 data-i18n="treeLabel">Tree explorer</h2>
+      <div class="toolbar mini">
+        <button id="btnExpand" class="btn ghost" type="button" data-i18n="expandAll">Expand all</button>
+        <button id="btnCollapse" class="btn ghost" type="button" data-i18n="collapseAll">Collapse all</button>
+      </div>
+    </div>
+    <input id="treeSearch" type="search" data-i18n-ph="searchPlaceholder" placeholder="Search keys or values..." autocomplete="off">
+    <div id="tree" class="tree" aria-label="JSON tree"></div>
+  </section>
+</main>
+
+<footer>
+  <p data-i18n="footer">100% offline &mdash; your JSON never leaves this page.</p>
+</footer>
+
+<script src="js/logic.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
